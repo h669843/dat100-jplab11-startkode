@@ -12,18 +12,14 @@ public class Tekst extends Innlegg {
 	}
 	
 	public Tekst(int id, String bruker, String dato, String tekst) {
-		this.id = id;
-		this.bruker = bruker;
-		this.dato= dato;
+		super(id, bruker, dato);
 		this.tekst = tekst;
 	}
 	
 	public Tekst(int id, String bruker, String dato, int likes, String tekst) {
-		this.id = id;
-		this.bruker = bruker;
-		this.dato= dato;
+		super (id, bruker, dato, likes);
 		this.tekst = tekst;
-		this.likes = likes;
+		
 	}
 	
 	public String getTekst() {
