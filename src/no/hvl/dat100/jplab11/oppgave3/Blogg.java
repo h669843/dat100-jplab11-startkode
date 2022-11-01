@@ -5,16 +5,16 @@ import no.hvl.dat100.jplab11.oppgave1.*;
 
 public class Blogg {
 
-	protected Innlegg[] innleggstabell;
+	protected Innlegg[] innleggtabell;
 	protected int nesteledig;
 	
 
 	public Blogg() {
-		this.innleggstabell = new Innlegg[20];
+		this.innleggtabell = new Innlegg[20];
 	}
 
 	public Blogg(int lengde) {
-		this.innleggstabell = new Innlegg[lengde];
+		this.innleggtabell = new Innlegg[lengde];
 		this.nesteledig = 0;
 	}
 
@@ -23,13 +23,24 @@ public class Blogg {
 	}
 	
 	public Innlegg[] getSamling() {
-		return innleggstabell;
+		return innleggtabell;
 
 	}
 	
 	public int finnInnlegg(Innlegg innlegg) {
 
-		throw new UnsupportedOperationException(TODO.method());
+		for (int i = 0; i <innleggtabell.length; i++) {
+
+			if(innleggtabell[i] == null){
+				return -1;
+			}
+			if(innleggtabell[i].erLik(innlegg)){
+				return i;
+
+			}
+
+		}
+		return -1;
 	}
 
 	public boolean finnes(Innlegg innlegg) {
