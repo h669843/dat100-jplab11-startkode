@@ -44,21 +44,37 @@ public class Blogg {
 	}
 
 	public boolean finnes(Innlegg innlegg) {
-		throw new UnsupportedOperationException(TODO.method());
+
+		if (finnInnlegg(innlegg) >= 0) {
+			return true;
+		}
+		return false;
 	}
 
 	public boolean ledigPlass() {
-		throw new UnsupportedOperationException(TODO.method());
 
+		if (nesteledig < innleggtabell.length) {
+			return true;
+		}
+		return false;
 	}
 	
-	public boolean leggTil(Innlegg innlegg) {
+    public boolean leggTil(Innlegg innlegg) {
 
-		throw new UnsupportedOperationException(TODO.method());
+		if (finnes(innlegg) == false && nesteledig < innleggtabell.length) {
+			innleggtabell[nesteledig] = innlegg;
+			nesteledig++;
+			return true;
+		}
+		return false;
 	}
 	
-	public String toString() {
-		throw new UnsupportedOperationException(TODO.method());
+    public String toString() {
+		String teksten = "" + nesteledig + "\n";
+		for (int i = 0; i < nesteledig; i++) {
+			teksten += innleggtabell[i].toString();
+		}
+		return teksten;
 	}
 
 	// valgfrie oppgaver nedenfor
